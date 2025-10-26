@@ -11,7 +11,6 @@ import {
   OpenInItem,
   OpenInScira,
   OpenInSeparator,
-  OpenInT3,
   OpenInTrigger,
   OpenInv0,
 } from "@/components/ai-elements/open-in-chat";
@@ -40,7 +39,7 @@ export const ViewOptions = ({ markdownUrl, githubUrl }: ViewOptionsProps) => {
       <OpenInContent>
         <OpenInChatGPT />
         <OpenInClaude />
-        <OpenInT3 />
+
         <OpenInScira />
         <OpenInv0 />
         <OpenInCursor />

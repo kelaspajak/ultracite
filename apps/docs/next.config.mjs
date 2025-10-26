@@ -13,6 +13,14 @@ const config = {
         protocol: "https",
         hostname: "github.com",
       },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "baca.diskusipajak.com",
+      },
     ],
   },
 
