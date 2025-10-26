@@ -1,4 +1,4 @@
-import { DocsLayout } from "fumadocs-ui/layouts/notebook";
+import { HomeLayout } from "fumadocs-ui/layouts/home";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { ConditionalContainer } from "@/components/conditional-container";
@@ -6,7 +6,7 @@ import { baseOptions } from "@/lib/layout.config";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants";
 import { source } from "@/lib/source";
 
-type DocsLayoutProps = {
+type HomeLayoutProps = {
   children: ReactNode;
 };
 
@@ -18,20 +18,17 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
 };
 
-const DocLayout = async (props: DocsLayoutProps) => (
+const DocLayout = async (props: HomeLayoutProps) => (
   <ConditionalContainer>
-    <DocsLayout
+    <HomeLayout
       {...baseOptions}
       nav={{
         ...baseOptions.nav,
-        mode: "top",
       }}
-      sidebar={{ collapsible: false }}
-      tabMode="navbar"
       tree={source.pageTree}
     >
       {props.children}
-    </DocsLayout>
+    </HomeLayout>
   </ConditionalContainer>
 );
 

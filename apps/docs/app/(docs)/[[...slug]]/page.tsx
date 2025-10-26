@@ -10,6 +10,7 @@ import { notFound } from "next/navigation";
 import { CopyMarkdown } from "@/components/copy-markdown";
 import { Feedback } from "@/components/feedback";
 import { ViewOptions } from "@/components/page-actions";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants";
 import { source } from "@/lib/source";
 import { getMDXComponents } from "@/mdx-components";
 import Home from "./(home)";
@@ -64,10 +65,17 @@ export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
 
   if (!params.slug) {
     return {
-      title:
-        "The AI-ready formatter that helps you write and generate code faster. | Ultracite",
-      description:
-        "Ultracite is a zero- config Biome preset that provides a robust linting and formatting experience for your team and your AI integrations.",
+      title: SITE_TITLE,
+      description: SITE_DESCRIPTION,
+      openGraph: {
+        title: SITE_TITLE,
+        description: SITE_DESCRIPTION,
+      },
+      twitter: {
+        title: SITE_TITLE,
+        description: SITE_DESCRIPTION,
+        card: "summary_large_image",
+      },
     };
   }
 
@@ -77,17 +85,19 @@ export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
 
   const image = ["/og", ...(params.slug || []), "image.png"].join("/");
 
+  const description = page.data.description ?? SITE_DESCRIPTION;
+
   return {
     title: page.data.title,
-    description: page.data.description,
+    description,
     openGraph: {
-      title: page.data.title,
-      description: page.data.description,
+      title: `${page.data.title} | ${SITE_TITLE}`,
+      description,
       images: image,
     },
     twitter: {
-      title: page.data.title,
-      description: page.data.description,
+      title: `${page.data.title} | ${SITE_TITLE}`,
+      description,
       creator: "@haydenbleasel",
       card: "summary_large_image",
       images: image,

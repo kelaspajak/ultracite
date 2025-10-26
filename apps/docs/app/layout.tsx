@@ -1,13 +1,20 @@
 import { Toaster } from "@/components/ui/sonner";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants";
 import "./global.css";
 import { Analytics } from "@vercel/analytics/next";
 import { RootProvider } from "fumadocs-ui/provider";
 import { cn } from "fumadocs-ui/utils/cn";
+import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 
 type LayoutProps = {
   children: ReactNode;
+};
+
+export const metadata: Metadata = {
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
 };
 
 const sans = Geist({
