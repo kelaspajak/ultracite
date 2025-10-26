@@ -3,12 +3,12 @@
 import { Calendar } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { DynamicImage } from "@/components/dynamic-image";
 import BulkDark from "public/og-image-dark.png";
 import BulkLight from "public/og-image-light.png";
+import { useState } from "react";
+import { DynamicImage } from "@/components/dynamic-image";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/card";
 import { POSTS_PAGE_SIZE } from "@/lib/constants";
 import type { GhostPagination, GhostPostSummary } from "@/lib/ghost";
+
 type PostsResponse = {
   posts: GhostPostSummary[];
   pagination: GhostPagination | null;
@@ -117,8 +118,8 @@ export function PostsFeed({
                         alt={post.title}
                         className="rounded-t-xl object-cover transition duration-500 ease-out group-hover:scale-[1.03]"
                         darkSrc={BulkDark}
-                        lightSrc={BulkLight}
                         fill
+                        lightSrc={BulkLight}
                         sizes="(min-width: 1024px) 480px, (min-width: 640px) 50vw, 100vw"
                       />
                     )}

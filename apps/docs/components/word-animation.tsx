@@ -3,12 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
-const words = [
-  "Wajib Pajak",
-  "Konsultan Pajak",
-  "Admin Pajak",
-  "Fiskus",
-];
+const words = ["Wajib Pajak", "Konsultan Pajak", "Admin Pajak", "Fiskus"];
 
 function useWordCycle(words: string[], interval: number) {
   const [index, setIndex] = useState(0);
@@ -35,19 +30,19 @@ export function WordAnimation() {
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div key={word} className="inline-block text-primary">
+      <motion.div className="inline-block text-primary" key={word}>
         {word?.split("").map((char, index) => (
           <motion.span
-            key={`${word}-${char}-${index.toString()}`}
-            initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -10, opacity: 0 }}
+            initial={{ y: 10, opacity: 0 }}
+            key={`${word}-${char}-${index.toString()}`}
+            style={{ display: "inline-block", whiteSpace: "pre" }}
             transition={{
               duration: 0.15,
               delay: index * 0.015,
               ease: "easeOut",
             }}
-            style={{ display: "inline-block", whiteSpace: "pre" }}
           >
             {char}
           </motion.span>

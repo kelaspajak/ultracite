@@ -2,8 +2,8 @@ import { DocsLayout } from "fumadocs-ui/layouts/notebook";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { ConditionalContainer } from "@/components/conditional-container";
-import { baseOptions } from "@/lib/layout.config";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants";
+import { baseOptions } from "@/lib/layout.config";
 import { source } from "@/lib/source";
 
 type DocsLayoutProps = {

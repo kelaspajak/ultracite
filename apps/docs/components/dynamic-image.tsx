@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import type { ImageProps } from "next/image";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 interface DynamicImageProps extends Omit<ImageProps, "src" | "className"> {
   lightSrc: ImageProps["src"];
@@ -20,15 +20,15 @@ export function DynamicImage({
   return (
     <>
       <Image
-        src={lightSrc}
         alt={alt}
         className={cn("dark:hidden", className)}
+        src={lightSrc}
         {...props}
       />
       <Image
-        src={darkSrc}
         alt={alt}
         className={cn("hidden dark:block", className)}
+        src={darkSrc}
         {...props}
       />
     </>

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-
-import { fetchGhostPostBySlug } from "@/lib/ghost";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/constants";
+import { fetchGhostPostBySlug } from "@/lib/ghost";
 
 const ghostContentApiUrl = process.env.NEXT_PUBLIC_GHOST_CONTENT_API_URL;
 const ghostContentApiKey = process.env.NEXT_PUBLIC_GHOST_CONTENT_API_KEY;
@@ -53,8 +52,7 @@ export const generateMetadata = async ({
     };
   }
 
-  const description =
-    post.meta_description ?? post.excerpt ?? SITE_DESCRIPTION;
+  const description = post.meta_description ?? post.excerpt ?? SITE_DESCRIPTION;
 
   return {
     title: post.meta_title ?? post.title,
