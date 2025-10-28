@@ -150,7 +150,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </figure>
         ) : null}
         {post.excerpt ? (
-          <p className="text-lg text-muted-foreground">{post.excerpt}</p>
+          <p className="hidden text-lg text-muted-foreground">{post.excerpt}</p>
         ) : null}
         <article
           className="prose-base prose space-y-6 prose-a:font-semibold prose-a:text-accent-300 prose-h3:text-black text-base text-foreground leading-relaxed hover:prose-a:text-black [&_a:hover]:underline [&_a]:text-primary [&_a]:underline-offset-4 [&_h2]:mt-10 [&_h2]:text-3xl [&_h3]:mt-8 [&_h3]:text-2xl"

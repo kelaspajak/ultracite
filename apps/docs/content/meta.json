@@ -1,6 +1,6 @@
 {
-  "title": "Ultracite",
+  "title": "TKB",
   "description": "The ultimate linting and formatting tool for your projects.",
-  "pages": ["(docs)", "preset", "integration", "migrate", "upgrade"],
+  "pages": ["(docs)", "pph", "integration", "migrate", "upgrade"],
   "root": true
 }

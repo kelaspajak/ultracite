@@ -1,0 +1,14 @@
+{
+  "title": "PPh",
+  "description": "Panduan ringkas PPh 23; kesimpulan: pemotongan ditentukan oleh jenis penghasilan dan fasilitas khususnya.",
+  "pages": [
+    "perkenalan",
+    "dividen",
+    "bunga",
+    "royalti",
+    "hadiah",
+    "sewa-jasa",
+    "..."
+  ],
+  "root": true
+}

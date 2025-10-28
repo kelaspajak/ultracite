@@ -1,0 +1,42 @@
+steps:
+  # 1. Build Docker image
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "-t"
+      - "$_GCR_HOSTNAME/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA"
+      - "."
+      - "-f"
+      - "apps.docs.Dockerfile" # Menunjuk ke Dockerfile yang kita buat
+    id: "Build Image"
+
+  # 2. Push image ke Artifact Registry (atau GCR)
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "$_GCR_HOSTNAME/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA"]
+    id: "Push Image"
+
+  # 3. Deploy ke Cloud Run
+  - name: "gcr.io/google-cloud-sdk/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      - "run"
+      - "deploy"
+      - "$_SERVICE_NAME" # Nama layanan Cloud Run Anda
+      - "--image"
+      - "$_GCR_HOSTNAME/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA"
+      - "--region"
+      - "$_REGION"
+      - "--platform"
+      - "managed"
+      - "--allow-unauthenticated" # Izinkan akses publik
+    id: "Deploy to Cloud Run"
+
+# Simpan image yang sudah di-build
+images:
+  - "$_GCR_HOSTNAME/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA"
+
+# Variabel yang bisa Anda ganti
+substitutions:
+  _SERVICE_NAME: "ultracite-docs" # GANTI INI: Nama unik untuk layanan Anda
+  _REGION: "asia-southeast1" # GANTI INI: Region Anda (misal: asia-southeast1)
+  _GCR_HOSTNAME: "asia.gcr.io" # Ganti jika region beda

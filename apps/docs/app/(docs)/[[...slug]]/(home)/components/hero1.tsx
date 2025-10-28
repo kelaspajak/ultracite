@@ -13,7 +13,7 @@ export const Hero = () => (
       </span>{" "}
       untuk Keputusan yang Pasti
     </h1>
-    <h2 className="text-center text-[100px] text-dotted leading-none md:text-[170px]">
+    <h2 className="text-center text-[100px] text-dotted leading-none md:text-[160px]">
       Dokumentasi • Diskusi • Kolaborasi
     </h2>
     <h2 className="mt-6 max-w-[580px] font-medium text-[#878787] text-[24px] leading-tight md:mt-10 md:text-[36px]">
